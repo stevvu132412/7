@@ -1,0 +1,154 @@
+getgenv().autostrength = false
+getgenv().autowins = false
+getgenv().autorebirth = false
+getgenv().autoteleport = false
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/kav"))()
+local Window = Library.CreateLib("Power Slapping Simulator | AzuHub", "DarkTheme")
+local Tab = Window:NewTab("Main")
+local Section1 = Tab:NewSection("Main")
+local Tab = Window:NewTab("Teleport")
+local Section3 = Tab:NewSection("Boss Maps")
+local Section2 = Tab:NewSection("Teleports")
+local Tab = Window:NewTab("Misc")
+local Section4 = Tab:NewSection("Player")
+local Tab = Window:NewTab("Credits")
+local Section100 = Tab:NewSection("Made By azuress")
+local Section101 = Tab:NewSection("discord.gg/htKA3GkPay")
+
+
+
+
+Section1:NewToggle("Auto Click", "Auto Clicks For You", function(state)
+    if state then
+        getgenv().autostrength = true
+        while getgenv().autostrength do
+            task.wait()
+            local args = {[1] = "ClickStat",[2] = 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999}
+            ReplicatedStorage.Remotes.Client:InvokeServer(unpack(args))
+        end
+    else
+        getgenv().autostrength = false
+    end
+end)
+
+Section1:NewToggle("Auto Wins", "Auto Wins For You", function(state)
+    if state then
+        getgenv().autowins = true
+        while getgenv().autowins do
+            task.wait()
+            local args = {[1] = "Wins"}
+            ReplicatedStorage.Remotes.Client:InvokeServer(unpack(args))
+        end
+    else
+        getgenv().autowins = false
+    end
+end)
+
+Section1:NewToggle("Auto Rebirth", "Auto Rebirths For You", function(state)
+    if state then
+        getgenv().autorebirth = true
+        while getgenv().autorebirth do
+            task.wait()
+            ReplicatedStorage.Remotes.Rebirth:FireServer()
+        end
+    else
+        getgenv().autorebirth = false
+    end
+end)
+
+Section1:NewButton("Redeem All Codes", "Redeems All Codes", function()
+    local args = {[1] = "UPDATE"}
+    game:GetService("ReplicatedStorage").CodesRemote:InvokeServer(unpack(args))
+end)
+
+function teleportTO(placeCFrame)
+    local plyr = game.Players.LocalPlayer
+    if plyr.Character then
+        plyr.Character.HumanoidRootPart.CFrame = placeCFrame
+    end
+end
+
+Section2:NewButton("Spawn", "Telepoorts You To Spawn", function()
+    teleportTO(game:GetService("Workspace").SpawnLocation.CFrame)
+end)
+
+Section2:NewButton("Winter", "Telepoorts You To Winter World", function()
+    teleportTO(game:GetService("Workspace").Portals.Winter.Location.CFrame)
+end)
+
+Section2:NewButton("Spooky", "Telepoorts You To Spooky World", function()
+    teleportTO(game:GetService("Workspace").Portals.Spooky.Location.CFrame)
+end)
+
+Section2:NewButton("Anime", "Telepoorts You To Anime World", function()
+    teleportTO(game:GetService("Workspace").Portals.Anime.Location.CFrame)
+end)
+
+Section2:NewButton("Underworld", "Telepoorts You To Underworld ", function()
+    teleportTO(game:GetService("Workspace").Portals.Underworld.Location.CFrame)
+end)
+
+Section2:NewButton("Luck", "Telepoorts You To Luck World", function()
+    teleportTO(game:GetService("Workspace").Portals.Luck.Location.CFrame)
+end)
+
+Section2:NewButton("Ice", "Telepoorts You To Ice World", function()
+    teleportTO(game:GetService("Workspace").Portals.Ice.Location.CFrame)
+end)
+
+Section2:NewButton("Volcano", "Telepoorts You To Volcano World", function()
+    teleportTO(game:GetService("Workspace").Portals.Volcano.Location.CFrame)
+end)
+
+Section2:NewButton("Mars", "Telepoorts You To Mars World", function()
+    teleportTO(game:GetService("Workspace").Portals.Mars.Location.CFrame)
+end)
+
+Section2:NewButton("Robot", "Telepoorts You To Robot World", function()
+    teleportTO(game:GetService("Workspace").Portals.Robot.Location.CFrame)
+end)
+
+Section3:NewButton("Grimace", "Telepoorts You To Grimace World", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-514.700012, 13.3524313, 258.350037, 1, 1.29965771e-08, 8.14419875e-14, -1.29965771e-08, 1, 9.41060208e-09, -8.13196759e-14, -9.41060208e-09, 1)
+end)
+
+Section3:NewButton("Skibidi", "Telepoorts You To Skibidi World", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(184.150009, 13.3524313, 251.250015, 1, 9.47339807e-09, -7.99867781e-15, -9.47339807e-09, 1, -2.25368453e-08, 7.78517723e-15, 2.25368453e-08, 1)
+end)
+
+Section3:NewButton("Candy", "Telepoorts You To Candy World", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-167.900009, 13.3524313, 252.500031, 1, 6.30759942e-08, 3.39067492e-14, -6.30759942e-08, 1, 7.96674655e-08, -2.88816449e-14, -7.96674655e-08, 1)
+end)
+
+Section3:NewButton("Aqua", "Telepoorts You To Aqua World", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-514.700012, 13.3524313, -97.4499817, 1, 3.39751516e-08, 1.91283354e-15, -3.39751516e-08, 1, 3.81158181e-08, -6.17842878e-16, -3.81158181e-08, 1)
+end)
+
+Section4:NewToggle("WalkSpeed", "Changes Your WalkSpeed", function(state)
+    if state then
+        getgenv().autowalk = true
+        while getgenv().autowalk do
+            task.wait()
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+        end
+    else
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 26
+        getgenv().autowalk = false
+    end
+end)
+
+Section4:NewButton("AntiAfk", "Afks For You", function()
+    wait(3)
+    local VirtualUser=game:service'VirtualUser'
+    game:service('Players').LocalPlayer.Idled:connect(function()
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton2(Vector2.new())
+    end)
+end)
+
+
+
